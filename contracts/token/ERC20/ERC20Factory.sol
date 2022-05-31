@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8;
 
-import "./ERC20.sol";
+import "./ERC20-INIT.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Factory {
@@ -17,7 +17,7 @@ contract Factory {
 
     event CreateToken(address indexed tokenAddress, uint256 indexed tokenId);
 
-    function create(string calldata tokenName, string calldata tokenSymbol, uint8 tokenDecimal, uint256 tokenTotalSupply) public{
+    function newToken(string calldata tokenName, string calldata tokenSymbol, uint8 tokenDecimal, uint256 tokenTotalSupply) public{
         require(tokenTotalSupply > 0, "totalsupply must less then zero");
         require(_tokenId[tokenName] == 0, "this token name is exists");
 
